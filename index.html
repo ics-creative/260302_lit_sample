@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Lit Cross Framework Demo</title>
+  </head>
+  <body>
+    <main class="app">
+      <h1>Litクロスフレームワークデモ</h1>
+      <p>
+        ひとつの&lt;result-card&gt;をメインの素のHTMLとReact / Vue /
+        Svelteから利用します。
+      </p>
+
+      <section>
+        <h2>メイン（素のHTML）</h2>
+        <result-card id="main-card"></result-card>
+        <p id="main-log">未クリック</p>
+      </section>
+
+      <section>
+        <h2>React</h2>
+        <div id="react-demo"></div>
+      </section>
+
+      <section>
+        <h2>Vue</h2>
+        <div id="vue-demo"></div>
+      </section>
+
+      <section>
+        <h2>Svelte</h2>
+        <div id="svelte-demo"></div>
+      </section>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

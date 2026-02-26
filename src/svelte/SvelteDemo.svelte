@@ -1,0 +1,28 @@
+<script lang="ts">
+  import type { CardClickDetail, DictionaryEntry, ResultCardElement } from "../shared/types";
+
+  let { entry }: { entry: DictionaryEntry } = $props();
+  let cardEl = $state<ResultCardElement | null>(null);
+  let message = $state("未クリック");
+  let count = $state(0);
+
+  const onCardClick = (event: Event): void => {
+    const customEvent = event as CustomEvent<CardClickDetail>;
+    count += 1;
+    message = `クリック: ${customEvent.detail.entry.japanese}（${count}回）`;
+  };
+
+  $effect(() => {
+    if (!cardEl) return;
+
+    cardEl.entry = entry;
+    cardEl.addEventListener("card-click", onCardClick);
+
+    return () => cardEl?.removeEventListener("card-click", onCardClick);
+  });
+</script>
+
+<div class="demo-block">
+  <result-card bind:this={cardEl}></result-card>
+  <p>{message}</p>
+</div>
