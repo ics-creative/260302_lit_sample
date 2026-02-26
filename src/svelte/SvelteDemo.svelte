@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { CardClickDetail, DictionaryEntry, ResultCardElement } from "../shared/types";
+  import type { CardClickDetail, DictionaryEntry, WordCardElement } from "../shared/types";
 
   let { entry }: { entry: DictionaryEntry } = $props();
-  let cardEl = $state<ResultCardElement | null>(null);
+  let cardEl = $state<WordCardElement | null>(null);
   let message = $state("未クリック");
   let count = $state(0);
 
@@ -23,6 +23,6 @@
 </script>
 
 <div class="demo-block">
-  <result-card bind:this={cardEl}></result-card>
+  <word-card bind:this={cardEl}></word-card>
   <p>{message}</p>
 </div>

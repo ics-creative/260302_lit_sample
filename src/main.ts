@@ -4,14 +4,14 @@ import { createApp } from "vue";
 import { mount } from "svelte";
 import "./lit-warnings";
 import "./styles.css";
-import "./components/result-card";
+import "./components/word-card";
 import { demoEntries } from "./shared/entries";
-import type { CardClickDetail, ResultCardElement } from "./shared/types";
+import type { CardClickDetail, WordCardElement } from "./shared/types";
 import { ReactDemo } from "./react/ReactDemo";
 import VueDemo from "./vue/VueDemo.vue";
 import SvelteDemo from "./svelte/SvelteDemo.svelte";
 
-const mainCard = document.querySelector<ResultCardElement>("#main-card");
+const mainCard = document.querySelector<WordCardElement>("#main-card");
 const mainLog = document.querySelector<HTMLParagraphElement>("#main-log");
 const mainState = { count: 0 };
 

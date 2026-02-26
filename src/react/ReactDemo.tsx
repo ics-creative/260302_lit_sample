@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import type {
   DictionaryEntry,
   CardClickDetail,
-  ResultCardElement,
+  WordCardElement,
 } from "../shared/types";
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
 };
 
 export function ReactDemo({ entry }: Props) {
-  const cardRef = useRef<ResultCardElement | null>(null);
+  const cardRef = useRef<WordCardElement | null>(null);
   const [message, setMessage] = useState("未クリック");
   const [, setCount] = useState(0);
 
@@ -37,7 +37,7 @@ export function ReactDemo({ entry }: Props) {
 
   return (
     <div className="demo-block">
-      <result-card ref={cardRef}></result-card>
+      <word-card ref={cardRef}></word-card>
       <p>{message}</p>
     </div>
   );

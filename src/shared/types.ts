@@ -8,6 +8,6 @@ export type CardClickDetail = {
   entry: DictionaryEntry;
 };
 
-export type ResultCardElement = HTMLElement & {
+export type WordCardElement = HTMLElement & {
   entry: DictionaryEntry;
 };

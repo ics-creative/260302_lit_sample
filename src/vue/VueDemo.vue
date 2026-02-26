@@ -3,14 +3,14 @@ import { onBeforeUnmount, onMounted, ref, watch } from "vue";
 import type {
   DictionaryEntry,
   CardClickDetail,
-  ResultCardElement,
+  WordCardElement,
 } from "../shared/types";
 
 const props = defineProps<{
   entry: DictionaryEntry;
 }>();
 
-const cardEl = ref<ResultCardElement | null>(null);
+const cardEl = ref<WordCardElement | null>(null);
 const message = ref("未クリック");
 const count = ref(0);
 
@@ -43,7 +43,7 @@ watch(
 
 <template>
   <div class="demo-block">
-    <result-card ref="cardEl"></result-card>
+    <word-card ref="cardEl"></word-card>
     <p>{{ message }}</p>
   </div>
 </template>

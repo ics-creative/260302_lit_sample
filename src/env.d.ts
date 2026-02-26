@@ -1,9 +1,9 @@
 /// <reference types="vite/client" />
 
-type ResultCardElement = import("./shared/types").ResultCardElement;
-type ResultCardProps = import("react").DetailedHTMLProps<
-  import("react").HTMLAttributes<ResultCardElement>,
-  ResultCardElement
+type WordCardElement = import("./shared/types").WordCardElement;
+type WordCardProps = import("react").DetailedHTMLProps<
+  import("react").HTMLAttributes<WordCardElement>,
+  WordCardElement
 >;
 type ReactIntrinsicElements = import("react").JSX.IntrinsicElements;
 
@@ -25,14 +25,14 @@ declare module "*.svelte" {
 
 declare namespace JSX {
   interface IntrinsicElements extends ReactIntrinsicElements {
-    "result-card": ResultCardProps;
+    "word-card": WordCardProps;
   }
 }
 
 declare module "react/jsx-runtime" {
   namespace JSX {
     interface IntrinsicElements extends ReactIntrinsicElements {
-      "result-card": ResultCardProps;
+      "word-card": WordCardProps;
     }
   }
 }

@@ -1,7 +1,7 @@
 import { LitElement, css, html } from "lit";
-import type { DictionaryEntry, CardClickDetail } from "../shared/types";
+import type { CardClickDetail, DictionaryEntry } from "../shared/types";
 
-class ResultCard extends LitElement {
+class WordCard extends LitElement {
   static properties = {
     entry: { attribute: false },
   };
@@ -109,6 +109,6 @@ class ResultCard extends LitElement {
   }
 }
 
-if (!customElements.get("result-card")) {
-  customElements.define("result-card", ResultCard);
+if (!customElements.get("word-card")) {
+  customElements.define("word-card", WordCard);
 }

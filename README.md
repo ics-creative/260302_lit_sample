@@ -1,6 +1,6 @@
 # 260302_lit_sample
 
-Lit で作成した `result-card` を、素のHTML・React・Vue・Svelte から利用するデモです。
+Lit で作成した `word-card` を、素のHTML・React・Vue・Svelte から利用するデモです。
 
 ## セットアップ
 
@@ -25,7 +25,7 @@ npm run dev
 
 ## 主要ファイル
 
-- `src/components/result-card.ts`: Lit の Web Component 本体
+- `src/components/word-card.ts`: Lit の Web Component 本体
 - `src/main.ts`: 各フレームワークデモのマウント処理
 - `src/react/ReactDemo.tsx`: React デモ
 - `src/vue/VueDemo.vue`: Vue デモ
