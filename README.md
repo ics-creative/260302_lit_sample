@@ -38,3 +38,8 @@ npm run dev
 npm run format
 npm run build
 ```
+
+## License
+
+- This project: `MIT` (`LICENSE`)
+- Third party notices: `THIRD_PARTY_NOTICES.md`
