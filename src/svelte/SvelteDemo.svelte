@@ -15,7 +15,9 @@
   $effect(() => {
     if (!cardEl) return;
 
+    // Svelteでも同じくプロパティ経由でデータを渡す
     cardEl.entry = entry;
+    // ハイフン付きイベント名はDOMイベントとして購読する
     cardEl.addEventListener("card-click", onCardClick);
 
     return () => cardEl?.removeEventListener("card-click", onCardClick);

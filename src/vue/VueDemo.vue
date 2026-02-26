@@ -17,6 +17,7 @@ const count = ref(0);
 const bindCard = (): void => {
   if (!cardEl.value) return;
 
+  // VueでもWeb Componentsにはプロパティ代入で渡す
   cardEl.value.entry = props.entry;
   cardEl.value.addEventListener("card-click", onCardClick);
 };
@@ -36,6 +37,7 @@ watch(
   () => props.entry,
   () => {
     if (!cardEl.value) return;
+    // 親の更新内容をword-card側に同期する
     cardEl.value.entry = props.entry;
   },
 );

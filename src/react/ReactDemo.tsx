@@ -18,6 +18,7 @@ export function ReactDemo({ entry }: Props) {
     const card = cardRef.current;
     if (!card) return;
 
+    // 属性ではなくプロパティとしてデータを渡す
     card.entry = entry;
 
     const onClick = (event: Event): void => {
@@ -31,6 +32,7 @@ export function ReactDemo({ entry }: Props) {
       });
     };
 
+    // ハイフン付きカスタムイベントはDOMイベントとして購読する
     card.addEventListener("card-click", onClick);
     return () => card.removeEventListener("card-click", onClick);
   }, [entry]);

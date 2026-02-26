@@ -3,7 +3,7 @@ import type { CardClickDetail, DictionaryEntry } from "../shared/types";
 
 class WordCard extends LitElement {
   static properties = {
-    entry: { attribute: false },
+    entry: { attribute: false }, // オブジェクトは属性ではなくプロパティで受け取る
   };
 
   static styles = css`
@@ -74,10 +74,11 @@ class WordCard extends LitElement {
     }
   `;
 
-  declare entry: DictionaryEntry;
+  declare entry: DictionaryEntry; // 親から渡される単語データ
 
   constructor() {
     super();
+    // 初回レンダリング時のundefined参照を避ける
     this.entry = {
       japanese: "",
       latin: "",
@@ -86,6 +87,7 @@ class WordCard extends LitElement {
   }
 
   private onCardClick = (): void => {
+    // クリックした単語データを親コンポーネントへ通知
     this.dispatchEvent(
       new CustomEvent<CardClickDetail>("card-click", {
         detail: { entry: this.entry },
@@ -109,6 +111,7 @@ class WordCard extends LitElement {
   }
 }
 
+// HMR時の再評価でも二重登録しない
 if (!customElements.get("word-card")) {
   customElements.define("word-card", WordCard);
 }
