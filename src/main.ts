@@ -11,12 +11,16 @@ import { ReactDemo } from "./react/ReactDemo";
 import VueDemo from "./vue/VueDemo.vue";
 import SvelteDemo from "./svelte/SvelteDemo.svelte";
 
+// 素のHTMLで使うword-cardの参照
 const mainCard = document.querySelector<WordCardElement>("#main-card");
 const mainLog = document.querySelector<HTMLParagraphElement>("#main-log");
 const mainState = { count: 0 };
 
 if (mainCard) {
+  // 初期表示データをセット
   mainCard.entry = demoEntries[0];
+
+  // クリックイベントを受け取り表示メッセージを更新
   mainCard.addEventListener("card-click", (event) => {
     if (!mainLog) return;
     const customEvent = event as CustomEvent<CardClickDetail>;
@@ -27,6 +31,7 @@ if (mainCard) {
 
 const reactRoot = document.querySelector("#react-demo");
 if (reactRoot) {
+  // React側に同じword-cardをマウント
   createRoot(reactRoot).render(
     createElement(ReactDemo, { entry: demoEntries[1] }),
   );
@@ -34,11 +39,13 @@ if (reactRoot) {
 
 const vueRoot = document.querySelector("#vue-demo");
 if (vueRoot) {
+  // Vue側に同じword-cardをマウント
   createApp(VueDemo, { entry: demoEntries[2] }).mount(vueRoot);
 }
 
 const svelteRoot = document.querySelector("#svelte-demo");
 if (svelteRoot) {
+  // Svelte側に同じword-cardをマウント
   mount(SvelteDemo, {
     target: svelteRoot,
     props: { entry: demoEntries[3] },

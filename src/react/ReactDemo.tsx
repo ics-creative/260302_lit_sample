@@ -11,7 +11,9 @@ type Props = {
 
 export function ReactDemo({ entry }: Props) {
   const cardRef = useRef<WordCardElement | null>(null);
+  // 表示中のメッセージ（クリック結果）を保持
   const [message, setMessage] = useState("未クリック");
+  // クリック回数だけを管理（UI表示はmessage側で行う）
   const [, setCount] = useState(0);
 
   useEffect(() => {
@@ -23,6 +25,7 @@ export function ReactDemo({ entry }: Props) {
 
     const onClick = (event: Event): void => {
       const customEvent = event as CustomEvent<CardClickDetail>;
+      // setStateの関数形式で確実にインクリメント
       setCount((previous) => {
         const next = previous + 1;
         setMessage(
@@ -34,6 +37,7 @@ export function ReactDemo({ entry }: Props) {
 
     // ハイフン付きカスタムイベントはDOMイベントとして購読する
     card.addEventListener("card-click", onClick);
+    // アンマウント時に購読を解除してリークを防ぐ
     return () => card.removeEventListener("card-click", onClick);
   }, [entry]);
 

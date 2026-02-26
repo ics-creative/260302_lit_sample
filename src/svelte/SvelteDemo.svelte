@@ -3,11 +3,13 @@
 
   let { entry }: { entry: DictionaryEntry } = $props();
   let cardEl = $state<WordCardElement | null>(null);
+  // 表示用メッセージとクリック回数
   let message = $state("未クリック");
   let count = $state(0);
 
   const onCardClick = (event: Event): void => {
     const customEvent = event as CustomEvent<CardClickDetail>;
+    // クリック時にカウントアップして表示更新
     count += 1;
     message = `クリック: ${customEvent.detail.entry.japanese}（${count}回）`;
   };
@@ -20,6 +22,7 @@
     // ハイフン付きイベント名はDOMイベントとして購読する
     cardEl.addEventListener("card-click", onCardClick);
 
+    // effectのクリーンアップで購読を解除
     return () => cardEl?.removeEventListener("card-click", onCardClick);
   });
 </script>

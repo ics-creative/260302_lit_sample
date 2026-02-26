@@ -98,6 +98,7 @@ class WordCard extends LitElement {
   };
 
   render() {
+    // クリック可能な単語カードUIを描画
     return html`
       <button class="card" type="button" @click=${this.onCardClick}>
         <div class="meta">
