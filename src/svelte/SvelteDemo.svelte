@@ -19,15 +19,10 @@
 
     // Svelteでも同じくプロパティ経由でデータを渡す
     cardEl.entry = entry;
-    // ハイフン付きイベント名はDOMイベントとして購読する
-    cardEl.addEventListener("card-click", onCardClick);
-
-    // effectのクリーンアップで購読を解除
-    return () => cardEl?.removeEventListener("card-click", onCardClick);
   });
 </script>
 
 <div class="demo-block">
-  <word-card bind:this={cardEl}></word-card>
+  <word-card bind:this={cardEl} oncard-click={onCardClick}></word-card>
   <p>{message}</p>
 </div>
