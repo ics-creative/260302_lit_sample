@@ -7,6 +7,7 @@ import type {
 } from "../shared/types";
 
 const props = defineProps<{
+  /** 表示対象の単語データ */
   entry: DictionaryEntry;
 }>();
 
@@ -24,6 +25,7 @@ const bindCard = (): void => {
 };
 
 const onCardClick = (event: Event): void => {
+  // CustomEvent に型を付けて detail.entry を安全に扱う
   const customEvent = event as CustomEvent<CardClickDetail>;
   // クリックごとにカウントアップし、表示を更新
   count.value += 1;

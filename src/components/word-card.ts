@@ -1,6 +1,10 @@
 import { LitElement, css, html } from "lit";
 import type { CardClickDetail, DictionaryEntry } from "../shared/types";
 
+/**
+ * 単語データを表示する Web Components 本体。
+ * React / Vue.js / Svelte から共通で利用される。
+ */
 class WordCard extends LitElement {
   static properties = {
     entry: { attribute: false }, // オブジェクトは属性ではなくプロパティで受け取る
@@ -90,8 +94,11 @@ class WordCard extends LitElement {
     // クリックした単語データを親コンポーネントへ通知
     this.dispatchEvent(
       new CustomEvent<CardClickDetail>("card-click", {
+        // 親側が扱いやすいよう detail に entry をまとめる
         detail: { entry: this.entry },
+        // ホスト外までバブリングさせる
         bubbles: true,
+        // Shadow DOM 境界を越えてイベントを伝播させる
         composed: true,
       }),
     );

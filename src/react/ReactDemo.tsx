@@ -6,9 +6,14 @@ import type {
 } from "../shared/types";
 
 type Props = {
+  /** 表示対象の単語データ */
   entry: DictionaryEntry;
 };
 
+/**
+ * React から <word-card> を利用するデモ。
+ * プロパティ代入とカスタムイベント購読の流れを示す。
+ */
 export function ReactDemo({ entry }: Props) {
   const cardRef = useRef<WordCardElement | null>(null);
   // 表示中のメッセージ（クリック結果）を保持
