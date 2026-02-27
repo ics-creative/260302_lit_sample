@@ -18,7 +18,7 @@ const count = ref(0);
 const bindCard = (): void => {
   if (!cardEl.value) return;
 
-  // VueでもWeb Componentsにはプロパティ代入で渡す
+  // Web Componentsにはプロパティ代入で渡す
   cardEl.value.entry = props.entry;
   cardEl.value.addEventListener("card-click", onCardClick);
 };
