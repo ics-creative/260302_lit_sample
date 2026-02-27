@@ -96,10 +96,6 @@ class WordCard extends LitElement {
       new CustomEvent<CardClickDetail>("card-click", {
         // 親側が扱いやすいよう detail に entry をまとめる
         detail: { entry: this.entry },
-        // ホスト外までバブリングさせる
-        bubbles: true,
-        // Shadow DOM 境界を越えてイベントを伝播させる
-        composed: true,
       }),
     );
   };
@@ -119,7 +115,7 @@ class WordCard extends LitElement {
   }
 }
 
-// HMR時の再評価でも二重登録しない
+// 既に定義済みなら再登録しない（重複読み込み対策）
 if (!customElements.get("word-card")) {
   customElements.define("word-card", WordCard);
 }
