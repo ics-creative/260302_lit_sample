@@ -1,9 +1,8 @@
 <script lang="ts">
-  import type { CardClickDetail, DictionaryEntry, WordCardElement } from "../shared/types";
+  import type { CardClickDetail, DictionaryEntry } from "../shared/types";
 
   // 親から受け取る単語データ（Svelte 5 の $props）
   let { entry }: { entry: DictionaryEntry } = $props();
-  let cardEl = $state<WordCardElement | null>(null);
   // 表示用メッセージとクリック回数
   let message = $state("未クリック");
   let count = $state(0);
@@ -15,16 +14,9 @@
     count += 1;
     message = `クリック: ${customEvent.detail.entry.japanese}（${count}回）`;
   };
-
-  $effect(() => {
-    if (!cardEl) return;
-
-    // Svelteでも同じくプロパティ経由でデータを渡す
-    cardEl.entry = entry;
-  });
 </script>
 
 <div class="demo-block">
-  <word-card bind:this={cardEl} oncard-click={onCardClick}></word-card>
+  <word-card entry={entry} oncard-click={onCardClick}></word-card>
   <p>{message}</p>
 </div>

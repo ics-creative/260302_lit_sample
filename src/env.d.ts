@@ -4,7 +4,10 @@ type WordCardElement = import("./shared/types").WordCardElement;
 type WordCardProps = import("react").DetailedHTMLProps<
   import("react").HTMLAttributes<WordCardElement>,
   WordCardElement
->;
+> & {
+  entry?: import("./shared/types").DictionaryEntry;
+  "oncard-click"?: (event: Event) => void;
+};
 type ReactIntrinsicElements = import("react").JSX.IntrinsicElements;
 
 declare module "*.vue" {
