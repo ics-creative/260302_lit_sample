@@ -22,7 +22,7 @@ const onCardClick = (event: Event): void => {
 
 <template>
   <div class="demo-block">
-    <word-card :entry.prop="props.entry" @card-click="onCardClick"></word-card>
+    <word-card :entry="props.entry" @card-click="onCardClick"></word-card>
     <p>{{ message }}</p>
   </div>
 </template>

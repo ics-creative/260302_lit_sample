@@ -2,7 +2,6 @@ import { createElement } from "react";
 import { createRoot } from "react-dom/client";
 import { createApp } from "vue";
 import { mount } from "svelte";
-import "./lit-warnings";
 import "./styles.css";
 import "./components/word-card";
 import { demoEntries } from "./shared/entries";
